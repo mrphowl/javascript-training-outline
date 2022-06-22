@@ -21,6 +21,30 @@
   // - Use let if we need to change the value of the variable.
   // - Avoid using var. There are some exceptions like when declaring a variable
   //   outside a block
+
+  /**
+   * Naming conventions
+   *
+   * - As a convention, variables should not start with a capital unless
+   *   they are a class.
+   * - Variables must start with either a letter (a,b,c,D,X, etc).
+   * - They can also start with or contain an underscore _ or dollar sign $.
+   * - They can also contain but may not start with a number.
+   */
+  const dog = 'Scrooge';
+  // $ and _ are the only non a-Z characters that can be used at the start of a
+  // variable name.
+  const $php = 'ha'; // $ symbol is sort of synonymous with a library called jQuery
+  const _emp_ = 'slant'; // _ symbol is sort of synonymous with a library called lodash
+  const camelCase = 'every word inside of your variable will contain an uppercase letter except for the first one';
+  const UpperCamelCase = 'almost never used in JavaScript unless you are defining a class';
+  const snake_case = 'Instead of using capitals between words, you use underscores.';
+  const kebabCaseNotAllowedInJavaScript =
+      'There is also something called kebab case, like this-is-kebab-case, but this is not allowed in JavaScript.'
+
+  // Most developers will always use camel case, UpperCamelCase if you are
+  // building a class, some people like using underscores and kebab case is not
+  // allowed.
 </script>
 </body>
 </html>
