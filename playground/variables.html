@@ -8,17 +8,25 @@
 </head>
 <body>
 <script>
-  // Variables
-  // var and let variables can be changed or updated, and const variables cannot.
-  var first = 'Elie'; // recommended to use let or const instead of var
-  let age = 37;
-  const cool = true;
+  // // Variables
+  // // var and let variables can be changed or updated, and const variables cannot.
+  // var first = 'Elie'; // recommended to use let or const instead of var
+  // let age = 37;
+  // const cool = true;
+  //
+  // first = 'Brother Elie';
+  // age = 999999;
+  // // This will give an error:
+  // // > Uncaught TypeError: Assignment to constant variable.
+  // cool = false;
 
-  first = 'Brother Elie';
-  age = 999999;
-  // This will give an error:
-  // > Uncaught TypeError: Assignment to constant variable.
-  cool = false;
+  // JavaScript still supports the old method of not declaring a variable
+  // because it has to be backwards compatible with early JavaScript code.
+  // Adding 'use strict' or strict mode at the top inside the <script> tag, or
+  // at the top of a JS file, function or method will make this throw an error
+  // > Uncaught ReferenceError: cat is not defined
+  'use strict';
+  cat = 'Chili';
 </script>
 </body>
 </html>
