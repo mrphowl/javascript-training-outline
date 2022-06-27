@@ -18,49 +18,107 @@ Strings are used for holding text. There are three different ways to create stri
   - have multi-line strings and maintain the line breaks inside them instead of adding backslashes at every line's end
 */
 const name = 'Paul Eliczar';
-const middle = "Galvez";
-const last = `Adraneda`;
+// const middle = "Galvez";
+// const last = `Adraneda`;
+//
+// const singleQuotesInSingleQuotes = 'At world\'s end.';
+// const doubleQuotesInDoubleQuotes = "The crow said, \"caw-caw\".";
+// const thisIsMoreConvenient = 'Do not call that "bacon". It does not even taste close to the actual thing.';
+// const backtickInBackticks = `This is full of unused \`variables\`.`;
+// const multiLineString = "The quick brown fox\
+// jumps over the lazy dog\
+// but the dog woke up and\
+// bit the bastard's tail.";
+// const multiLineStringInBackticks = `Can we go back? This is the moment
+// Tonight is the night, we'll fight 'til it's over
+// So we put our hands up like the ceiling can't hold us.`;
+// const htmlCode = `
+// <div>
+//   <p class="immortal-example">Hello, world!</p>
+// </div>
+// `;
+//
+// /* Concatenation and Interpolation */
+//
+// // Interpolation using concatenation
+// const hello = "Hello, my name is" + name + ". Nice to meet you.";
+//
+// // Overwriting the value
+// let hello2 = "Hello, my name is ";
+// hello2 = hello2 + name;
+// hello2 = hello2 + ". Nice to meet you.";
+//
+// // Using backticks
+// const hello3 = `Hello, my name is ${name}. Nice to meet you.`;
+//
+// // We can also do expressions inside the curly braces
+// // JavaScript will run whatever is inside the curly brackets in that syntax (whether it is a variable or an actual
+// // statement) and it will return the value that's inside it.
+// const hello4 = `Hello, my name is ${name}. Nice to meet you. I am ${6 * 6 + 1} years old.`;
 
-const singleQuotesInSingleQuotes = 'At world\'s end.';
-const doubleQuotesInDoubleQuotes = "The crow said, \"caw-caw\".";
-const thisIsMoreConvenient = 'Do not call that "bacon". It does not even taste close to the actual thing.';
-const backtickInBackticks = `This is full of unused \`variables\`.`;
-const multiLineString = "The quick brown fox\
-jumps over the lazy dog\
-but the dog woke up and\
-bit the bastard's tail.";
-const multiLineStringInBackticks = `Can we go back? This is the moment
-Tonight is the night, we'll fight 'til it's over
-So we put our hands up like the ceiling can't hold us.`;
-const htmlCode = `
-<div>
-  <p class="immortal-example">Hello, world!</p>
-</div>
-`;
+// const html = `
+// <div>
+//   <h2>${name} ${last}</h2>
+//   <p>${hello4}</p>
+// </div>
+// `;
+//
+// document.body.innerHTML = html;
 
-/* Concatenation and Interpolation */
+/* Numbers */
+const age = 100;
+const myLazadaDiscount = 13.02;
+// typeof is a keyword in JavaScript that allows you to check the type of a value.
+// You use it by writing typeof followed by a space and a variable or value.
+// That will tell you whether it's a number, a string, or any of the other types.
+console.log('typeof age', typeof age);
+console.log('typeof name', typeof name);
 
-// Interpolation using concatenation
-const hello = "Hello, my name is" + name + ". Nice to meet you.";
+// Arithmetic operations
 
-// Overwriting the value
-let hello2 = "Hello, my name is ";
-hello2 = hello2 + name;
-hello2 = hello2 + ". Nice to meet you.";
+// Math operations will perform addition, multiplication, subtraction, etc. between two number types.
+console.log(1 + 1); // 2
+console.log(12 * 5); // 60
+console.log(120 / 5); // 24
+console.log(3 - 2); // 1
 
-// Using backticks
-const hello3 = `Hello, my name is ${name}. Nice to meet you.`;
+// adding numbers and strings will result into concatenation and will return a string value.
+console.log("10" + "10"); // "1010"
+console.log(10 + "10"); // "1010"
+console.log(10 + 10); // "1010"
 
-// We can also do expressions inside the curly braces
-// JavaScript will run whatever is inside the curly brackets in that syntax (whether it is a variable or an actual
-// statement) and it will return the value that's inside it.
-const hello4 = `Hello, my name is ${name}. Nice to meet you. I am ${6 * 6 + 1} years old.`;
+// Doing other operations will first convert the strings into numbers before performing the operation.
+console.log("10" * "10"); // 100
+console.log('10' / 10); // 1
+console.log('15' % 4); // 3
 
-const html = `
-<div>
-  <h2>${name} ${last}</h2>
-  <p>${hello4}</p>
-</div>
-`;
+// Helper methods
 
-document.body.innerHTML = html;
+// Round the number up or down
+Math.round(36.4); // 36
+Math.round(36.5); // 37
+// Gives the lower number
+Math.floor(36.7); // 36
+// Gives the upper number
+Math.ceil(36.7); // 37
+// Gives a random value between 0 and 1
+Math.random();
+// modulo and power operators
+const smarties = 20;
+const kids = 3;
+let eachKidGets = smarties / kids; // 6.666666666666667
+// Using Math.floor to drop the decimal value
+eachKidGets = Math.floor(eachKidGets); // 6
+// How many smarties left?
+const dadGets = smarties % kids; // 2
+
+// 0.1 + 0.2 is NOT equal to 0.3 -> explained in https://0.30000000000000004.com
+
+// we use ** to compute for powers
+const power = 10 ** 2; // 10 to the power of 2, results to 100
+const boss = 1000 ** 20; // 1e+60
+// Infinity and negative infinity. Both are number types
+const wife = 1000 ** 200; // Infinity
+const negativeInfinity = (1000 ** 200) * -1; // -Infinity
+// NaN means "not a number". NaN is a type of "number", which is confusing since it means not a number.
+const notANumber = 10 / 'dog'
