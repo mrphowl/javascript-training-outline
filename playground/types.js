@@ -17,7 +17,7 @@ Strings are used for holding text. There are three different ways to create stri
   - escape a backtick with a backslash to print backticks
   - have multi-line strings and maintain the line breaks inside them instead of adding backslashes at every line's end
 */
-const name = 'Paul Eliczar';
+// const name = 'Paul Eliczar';
 // const middle = "Galvez";
 // const last = `Adraneda`;
 //
@@ -65,60 +65,83 @@ const name = 'Paul Eliczar';
 //
 // document.body.innerHTML = html;
 
-/* Numbers */
-const age = 100;
-const myLazadaDiscount = 13.02;
-// typeof is a keyword in JavaScript that allows you to check the type of a value.
-// You use it by writing typeof followed by a space and a variable or value.
-// That will tell you whether it's a number, a string, or any of the other types.
-console.log('typeof age', typeof age);
-console.log('typeof name', typeof name);
+// /* Numbers */
+// const age = 100;
+// const myLazadaDiscount = 13.02;
+// // typeof is a keyword in JavaScript that allows you to check the type of a value.
+// // You use it by writing typeof followed by a space and a variable or value.
+// // That will tell you whether it's a number, a string, or any of the other types.
+// console.log('typeof age', typeof age);
+// console.log('typeof name', typeof name);
+//
+// // Arithmetic operations
+//
+// // Math operations will perform addition, multiplication, subtraction, etc. between two number types.
+// console.log(1 + 1); // 2
+// console.log(12 * 5); // 60
+// console.log(120 / 5); // 24
+// console.log(3 - 2); // 1
+//
+// // adding numbers and strings will result into concatenation and will return a string value.
+// console.log("10" + "10"); // "1010"
+// console.log(10 + "10"); // "1010"
+// console.log(10 + 10); // "1010"
+//
+// // Doing other operations will first convert the strings into numbers before performing the operation.
+// console.log("10" * "10"); // 100
+// console.log('10' / 10); // 1
+// console.log('15' % 4); // 3
+//
+// // Helper methods
+//
+// // Round the number up or down
+// Math.round(36.4); // 36
+// Math.round(36.5); // 37
+// // Gives the lower number
+// Math.floor(36.7); // 36
+// // Gives the upper number
+// Math.ceil(36.7); // 37
+// // Gives a random value between 0 and 1
+// Math.random();
+// // modulo and power operators
+// const smarties = 20;
+// const kids = 3;
+// let eachKidGets = smarties / kids; // 6.666666666666667
+// // Using Math.floor to drop the decimal value
+// eachKidGets = Math.floor(eachKidGets); // 6
+// // How many smarties left?
+// const dadGets = smarties % kids; // 2
+//
+// // 0.1 + 0.2 is NOT equal to 0.3 -> explained in https://0.30000000000000004.com
+//
+// // we use ** to compute for powers
+// const power = 10 ** 2; // 10 to the power of 2, results to 100
+// const boss = 1000 ** 20; // 1e+60
+// // Infinity and negative infinity. Both are number types
+// const wife = 1000 ** 200; // Infinity
+// const negativeInfinity = (1000 ** 200) * -1; // -Infinity
+// // NaN means "not a number". NaN is a type of "number", which is confusing since it means not a number.
+// const notANumber = 10 / 'dog'
 
-// Arithmetic operations
+/* Objects */
+// declare an empty object
+const emptyObject = {};
+// You may notice that the order of the properties are different when the object is printed in the browser console.
+// The short and skinny is that the order doesn't matter in an object. If you need the order to matter,
+// use an array or Map data structure.
+const person = {
+    // the following key-value pairs define the properties of the object
+    name: 'Paul Eliczar',
+    last: 'Adraneda',
+    age: 37
+};
+// Accessing the properties
+console.log(person.name); // dot notation
+console.log(person.name);
 
-// Math operations will perform addition, multiplication, subtraction, etc. between two number types.
-console.log(1 + 1); // 2
-console.log(12 * 5); // 60
-console.log(120 / 5); // 24
-console.log(3 - 2); // 1
+/* Symbols */
 
-// adding numbers and strings will result into concatenation and will return a string value.
-console.log("10" + "10"); // "1010"
-console.log(10 + "10"); // "1010"
-console.log(10 + 10); // "1010"
-
-// Doing other operations will first convert the strings into numbers before performing the operation.
-console.log("10" * "10"); // 100
-console.log('10' / 10); // 1
-console.log('15' % 4); // 3
-
-// Helper methods
-
-// Round the number up or down
-Math.round(36.4); // 36
-Math.round(36.5); // 37
-// Gives the lower number
-Math.floor(36.7); // 36
-// Gives the upper number
-Math.ceil(36.7); // 37
-// Gives a random value between 0 and 1
-Math.random();
-// modulo and power operators
-const smarties = 20;
-const kids = 3;
-let eachKidGets = smarties / kids; // 6.666666666666667
-// Using Math.floor to drop the decimal value
-eachKidGets = Math.floor(eachKidGets); // 6
-// How many smarties left?
-const dadGets = smarties % kids; // 2
-
-// 0.1 + 0.2 is NOT equal to 0.3 -> explained in https://0.30000000000000004.com
-
-// we use ** to compute for powers
-const power = 10 ** 2; // 10 to the power of 2, results to 100
-const boss = 1000 ** 20; // 1e+60
-// Infinity and negative infinity. Both are number types
-const wife = 1000 ** 200; // Infinity
-const negativeInfinity = (1000 ** 200) * -1; // -Infinity
-// NaN means "not a number". NaN is a type of "number", which is confusing since it means not a number.
-const notANumber = 10 / 'dog'
+// A quick tutorial: https://flaviocopes.com/javascript-symbols/
+const illuminati = Symbol();
+// Every time you invoke Symbol() we get a new and unique symbol, guaranteed to be different from all other symbols.
+console.log(Symbol() === Symbol()); //false
