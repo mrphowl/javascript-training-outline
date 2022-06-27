@@ -145,3 +145,30 @@ console.log(person.name);
 const illuminati = Symbol();
 // Every time you invoke Symbol() we get a new and unique symbol, guaranteed to be different from all other symbols.
 console.log(Symbol() === Symbol()); //false
+
+/* Null and Undefined */
+
+// Two ways to sort of express "nothing" in JavaScript.
+// If you create a variable and don't set anything to it, it will be undefined.
+// undefined is something that has been created (a variable), but has not yet been defined (given a value).
+// The same thing goes for properties on an object.
+let dog;
+console.log(dog); // undefined
+
+// Null is a value of nothing, whereas undefined is a variable that has not yet had a value set to it.
+// you cannot use a const variable without setting a value.
+let somethingUndefined;
+const somethingNull = null;
+
+const cher = {
+    first: "Cher"
+};
+const teller = {
+    first: "Raymond",
+    last: "Teller"
+};
+teller.first = "Teller";
+teller.last = null;
+
+// cher.last -> undefined
+// teller.last -> null
