@@ -172,3 +172,29 @@ teller.last = null;
 
 // cher.last -> undefined
 // teller.last -> null
+
+/* Booleans */
+
+// Booleans are either true or false.
+let isDrawing = false;
+
+// calculation of booleans result to either true or false
+const age = 18;
+const ofAge = age > 19; // false since 18 is less than 19
+console.log(ofAge); // false
+
+/* Equality: =, ==, and === */
+
+// One equal sign is used to assign values.
+const sheep = 100;
+// double equals (==) and triple equals (===) are used for comparison
+console.log(sheep === 100); // true
+console.log(sheep === 10); // false
+
+const lamb = 100;
+// === always checks that the value and type are exactly the same
+console.log(sheep === lamb); // true
+// == checks that the values are same but may cause unexpected type coercion
+console.log("10" == 10); //true
+// Condition is always false since 'string' and 'number' has no overlap.
+console.log("10" === 10); //false
