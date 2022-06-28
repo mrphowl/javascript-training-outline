@@ -10,10 +10,12 @@ function calculateBill() {
   // This is a function body.
   console.log("I'm in.");
   const total = 100 * 1.12;
-  console.log('Total:', total);
+  return total;
 }
-// The variable total here will be undefined due to scoping.
-// The variable total is only available inside the function calculateBill.
-// We can define a variable called total here, but it will a different one.
 
-calculateBill();
+const myTotal = calculateBill();
+console.log(`Your total is Php${myTotal}.`);
+// Another interpolation strings - you can actually run the function from within the log statement.
+// JavaScript is going to run the function first, and then whatever the return result is it will immediately
+// be interpolated into that string.
+console.log(`Your total is Php${calculateBill()}. Please pay the exact amount.`);
