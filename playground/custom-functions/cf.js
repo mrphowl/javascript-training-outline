@@ -1,21 +1,43 @@
-console.log('It works!');
+// Global variable which can be accessed inside functions if they don't have a variable with the same name.
+const moneyFractionDigits = 2;
 
-// Take in some arguments and return the total value:
-// -how much the dinner was
-// -the tax rate
-// -how much you want to tip
-//
-// We will assume the meal is 100 Pesos, and we will multiply it by 1.12 (PH VAT = 12%)
-function calculateBill() {
-  // This is a function body.
-  console.log("I'm in.");
-  const total = 100 * 1.12;
+// Passing parameters to a function
+function calculateBill(meal, taxRate) {
+  const total = meal * (1 + taxRate);
   return total;
 }
 
-const myTotal = calculateBill();
-console.log(`Your total is Php${myTotal}.`);
-// Another interpolation strings - you can actually run the function from within the log statement.
-// JavaScript is going to run the function first, and then whatever the return result is it will immediately
-// be interpolated into that string.
-console.log(`Your total is Php${calculateBill()}. Please pay the exact amount.`);
+function money(amount) {
+  return amount.toFixed(moneyFractionDigits);
+}
+
+const taxRate = 0.13;
+let myTotal = calculateBill(112, taxRate);
+console.log(`Your total bill is Php${money(myTotal)}.`);
+
+// Parameter can also be expression
+// The expression is run first before passing the final value to the function.
+myTotal = calculateBill(20 + 20 + 30 + 40 + 20, taxRate);
+console.log(`Your total bill is Php${money(myTotal)}.`);
+
+// Function #2 Greeter
+function sayHiTo(name) {
+  return `Hi, ${name}!`; // if the parameter is not passed, this will return 'Hi, undefined!'
+}
+
+const ninongMo = 'Ninong Mo';
+console.log(sayHiTo(ninongMo));
+document.querySelector('#person').innerHTML = sayHiTo(ninongMo);
+
+function doctorize(name) {
+  return `Dr. ${name}`;
+}
+
+console.log(doctorize('Ho'));
+
+function yell(name) {
+  return `HEY, ${name.toUpperCase()}!`;
+}
+// Functions sayHiTo, doctorize, and yell all use the 'name' parameter but these parameters are not the same since
+// these parameters are only available within their respective functions.
+console.log(yell('Jude'));
