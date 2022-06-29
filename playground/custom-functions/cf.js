@@ -1,9 +1,10 @@
 // Global variable which can be accessed inside functions if they don't have a variable with the same name.
 const moneyFractionDigits = 2;
+const taxRatePH = 0.12;
 
-// Passing parameters to a function
-function calculateBill(meal, taxRate) {
-  const total = meal * (1 + taxRate);
+// parameters with default values
+function calculateBill(meal, taxRate = taxRatePH, tipRate = 0.15) {
+  const total = meal * (1 + taxRate + tipRate);
   return total;
 }
 
@@ -11,14 +12,12 @@ function money(amount) {
   return amount.toFixed(moneyFractionDigits);
 }
 
-const taxRate = 0.13;
-let myTotal = calculateBill(112, taxRate);
-console.log(`Your total bill is Php${money(myTotal)}.`);
+let myTotal = calculateBill(100);
+console.log(`Your total bill is Php${money(myTotal)}.`); // Your total bill is Php127.00.
 
-// Parameter can also be expression
-// The expression is run first before passing the final value to the function.
-myTotal = calculateBill(20 + 20 + 30 + 40 + 20, taxRate);
-console.log(`Your total bill is Php${money(myTotal)}.`);
+// use undefined to use the default tax rate and set the tipRate
+myTotal = calculateBill(100, undefined, 0.2);
+console.log(`Your total bill is Php${money(myTotal)}.`); // Your total bill is Php132.00.
 
 // Function #2 Greeter
 function sayHiTo(name) {
