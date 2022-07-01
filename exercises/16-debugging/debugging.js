@@ -6,11 +6,7 @@ const people = [
 ];
 
 people.forEach((person, index) => {
-  console.groupCollapsed(`${person.name}`);
-  console.log(person.country);
-  console.log(person.cool);
-  console.log("DONE!!");
-  console.groupEnd(`${person.name}`);
+  console.log(person.name);
 });
 
 // Console Methods
@@ -25,7 +21,7 @@ function doALotOfStuff() {
 function bootstrap() {
   go();
 }
-bootstrap();
+// bootstrap();
 // Grabbing Elements
 
 // Breakpoints
@@ -73,4 +69,7 @@ async function fetchDadJoke() {
   return joke;
 }
 
-
+/* eslint-enable */
+document.querySelector('#joke').addEventListener('click', async () => {
+  document.querySelector('.joke').innerHTML = await fetchDadJoke();
+});
