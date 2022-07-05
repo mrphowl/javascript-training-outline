@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>JS-103: The Tricky Bits - Closures</title>
+</head>
+<body>
+<script>
+  /**
+   * JavaScript is able to create functions inside of functions, and it can still reach outside to the parent scope, and
+   * even though the outer function is done running, it will still maintain that variable in memory so that we can then
+   * access it at a later time.
+   *
+   * The variable is not cleaned up or "garbage collected" which is a term that is often used.
+   */
+  function outer() {
+    const outerVar = 'Hey I am the outer var';
+
+    function inner() {
+      const innerVar = 'Hey I am an inner var';
+      console.log(innerVar);
+      console.log(outerVar);
+    }
+    return inner;
+  }
+
+  // We store the function inner() so we can call it at a later time
+  const innerFn = outer();
+  innerFn(); // a later time
+</script>
+</body>
+</html>
