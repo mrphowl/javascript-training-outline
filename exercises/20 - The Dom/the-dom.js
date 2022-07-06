@@ -13,7 +13,18 @@
  * the <head> tag.
  */
 function init() {
-  const p = document.querySelector('p');
-  console.log(p);
+  const p = document.querySelector('p'); // select a <p> element
+  console.log('--init', p);
 }
 document.addEventListener('DOMContentLoaded', init);
+
+/**
+ * querySelector() and querySelectorAll() both take one argument, which is the CSS selector.
+ */
+const firstP = document.querySelector('p'); // the first matching p element
+const divs = document.querySelectorAll('div'); // array of div elements
+const item2 = document.querySelector('.item2'); // the div that has the class 'item2'
+
+console.log('firstP', firstP);
+console.log('divs', divs);
+console.log('item2', item2);
