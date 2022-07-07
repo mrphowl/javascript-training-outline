@@ -28,3 +28,14 @@ const item2 = document.querySelector('.item2'); // the div that has the class 'i
 console.log('firstP', firstP);
 console.log('divs', divs);
 console.log('item2', item2);
+
+/**
+ * Searching inside already selected elements
+ *
+ * If you ever need to narrow down your focus as to where you are searching, you can do that in your selector, but
+ * you can also run querySelector() and querySelectorAll() on any other element and only search within it to limit
+ * the scope.
+ */
+const item2p = item2.querySelector('p');
+
+console.log('--item2p', item2p);
