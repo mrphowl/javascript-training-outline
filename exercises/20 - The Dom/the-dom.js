@@ -55,4 +55,15 @@ const heading = document.querySelector('h2');
 console.log('--heading');
 console.dir(heading.textContent); // example of a getter
 
-heading.textContent = 'Diablo Immortal'; // example of a setter
+// heading.textContent = 'Diablo Immortal'; // example of a setter
+
+/**
+ * textContent and innerText
+ *
+ * textContent and innerText are very similar properties, textContent is the newer one.
+ *
+ * The only difference is that innerText returns only the human-readable content whereas textContent will get
+ * the contents of all the elements, including script and style elements.
+ */
+console.log('--textContent', heading.textContent); // using Chrome, the <style> tags were not included?
+console.log('--innerText', heading.innerText);
