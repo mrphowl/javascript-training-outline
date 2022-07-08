@@ -39,3 +39,20 @@ console.log('item2', item2);
 const item2p = item2.querySelector('p');
 
 console.log('--item2p', item2p);
+
+/**
+ * Element properties and methods
+ */
+const h2 = document.querySelector('h2');
+console.log('--h2');
+// console.dir() shows the object properties instead of the actual element itself.
+console.dir(h2);
+
+/**
+ * Getters and setters
+ */
+const heading = document.querySelector('h2');
+console.log('--heading');
+console.dir(heading.textContent); // example of a getter
+
+heading.textContent = 'Diablo Immortal'; // example of a setter
