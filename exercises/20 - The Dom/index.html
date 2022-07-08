@@ -7,41 +7,49 @@
   <meta http-equiv='X-UA-Compatible' content='ie=edge'>
   <title>JS-201: The DOM</title>
   <link rel='stylesheet' href='../../base.css'>
+  <style>
+    img {
+      transition: all 0.3s;
+      z-index: 0;
+      position: relative;
+    }
+    .round {
+      border-radius: 50%;
+      box-shadow: 0 0 10px black;
+    }
+    .rotate-1turn {
+      transform: rotate(1turn);
+      box-shadow: 0 0 10px black;
+    }
+    .rotate-20deg {
+      transform: rotate(20deg);
+      box-shadow: 0 0 10px black;
+    }
+    .rotate-2kdeg {
+      transform: rotate(3000deg);
+      box-shadow: 0 0 10px black;
+    }
+    .rotate1-scale2 {
+      transform: rotate(1turn) scale(2);
+      box-shadow: 0 0 10px black;
+    }
+    .img-controls, .img-controls > button {
+      z-index: 10000;
+    }
+    button {
+      z-index: 10000;
+      position: relative;
+    }
+  </style>
 </head>
 <body>
-<div class='items'>
-  <article class="item">
-    <h2>I'm an article</h2>
-    <p class="pizza">This is how many pizzas I ate! 🍕</p>
-  </article>
-</div>
-<script>
-  /* Get and set element text */
-  // Select the element
-  const pizzaList = document.querySelector('.pizza');
-  console.log(pizzaList.textContent);
-  // Update the textContent.
-  // This will take what was already there and adds a pizza emoji to the end.
-  // This method can be slow in some applications that have lots of text and HTML,
-  // because it causes the browser to re-render the entire list.
-  pizzaList.textContent = `${pizzaList.textContent}🍕`;
-
-  /* insertAdjacentText and insertAdjacentElement */
-  // These are different methods to add text to the end.
-  // (arg1) position can be (beforebegin, afterbegin, beforeend, afterend)
-  // 
-  pizzaList.insertAdjacentText('beforeend', '🍕');
-  pizzaList.insertAdjacentText('afterbegin', '🍕');
-
-  // more pizza
-  let morePizza = document.createElement('p');
-  morePizza.classList.add('more-pizza');
-  morePizza.textContent = '🍕🍕🍕🍕🍕';
-  pizzaList.insertAdjacentElement('afterend', morePizza);
-
-  // Nodes vs Elements
-  // Nodes can be anything, but an accutal element is something that is wrapped
-  // in tags.
-</script>
+  <div>
+    <img class="nice cool" src="https://picsum.photos/500" alt="A random image from Lorem Picsum." title="Nice, cool picture."/>
+    <div>
+      <button class="btn-random">Random effect</button>
+      <button class="btn-reset">Remove effects</button>
+    </div>
+  </div>
+  <script src="./the-dom.js"></script>
 </body>
 </html>

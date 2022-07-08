@@ -1,69 +1,80 @@
 /**
  * JS-201: The DOM
+ * 
+ * Working wih Classes
  */
 /* eslint no-console: 0 */
-/**
- * If this script is loaded in the <head> tag, the script above will not work since the Javascript is being loaded and
- * run before the HTML or the actual elements are created.
- *
- * One way around this is to load the Javascript before the closing <body> tag. (see index.html)
- *
- * Another way is to put all the js code inside a function, and then add an event listener that listens for
- * the DOM content loaded event and runs the init() function below. With this, we can move the script src back inside
- * the <head> tag.
- */
-function init() {
-  const p = document.querySelector('p'); // select a <p> element
-  console.log('--init', p);
+
+const pic = document.querySelector('.nice');
+console.log('--img.nice', pic.classList);
+pic.classList.add('open');
+console.log('--img.nice add open', pic.classList);
+pic.classList.remove('cool');
+console.log('--img.nice rem cool', pic.classList);
+pic.classList.toggle('round');
+console.log('--img.nice add round', pic.classList);
+
+function toggleRound() {
+    pic.classList.toggle('round');
 }
-document.addEventListener('DOMContentLoaded', init);
+
+pic.addEventListener('click', toggleRound);
+
+const fxClass = [
+    'round',
+    'rotate-1turn',
+    'rotate-20deg',
+    'rotate-2kdeg',
+    'rotate1-scale2'
+];
 
 /**
- * querySelector() and querySelectorAll() both take one argument, which is the CSS selector.
- */
-const firstP = document.querySelector('p'); // the first matching p element
-const divs = document.querySelectorAll('div'); // array of div elements
-const item2 = document.querySelector('.item2'); // the div that has the class 'item2'
-
-console.log('firstP', firstP);
-console.log('divs', divs);
-console.log('item2', item2);
-
-/**
- * Searching inside already selected elements
+ * Pick a class from fxClass and return it with the last chosen class.
  *
- * If you ever need to narrow down your focus as to where you are searching, you can do that in your selector, but
- * you can also run querySelector() and querySelectorAll() on any other element and only search within it to limit
- * the scope.
+ * Yey, private variable!
+ * 
+ * @returns string
  */
-const item2p = item2.querySelector('p');
+function randomEffects() {
+    let currentEffect = '';
 
-console.log('--item2p', item2p);
+    return function applyNew() {
+        let newEffect = '';
+        // Using do-while to prevent the same choice as the currentEffect
+        do {
+            // pick any one item from fxClass as the new effect
+            const idx = Math.floor(Math.random() * fxClass.length);
+            newEffect = fxClass[idx];
+        } while(newEffect === currentEffect);
+        // we will return the old and new class after we...
+        const effects = [currentEffect, newEffect];
+        // ...set newEffect as the new currentEffect
+        currentEffect = newEffect;
+        return effects;
+    };
+}
 
-/**
- * Element properties and methods
- */
-const h2 = document.querySelector('h2');
-console.log('--h2');
-// console.dir() shows the object properties instead of the actual element itself.
-console.dir(h2);
+const effect = randomEffects();
 
-/**
- * Getters and setters
- */
-const heading = document.querySelector('h2');
-console.log('--heading');
-console.dir(heading.textContent); // example of a getter
+function toggleEffect() {
+    let [oldClass, newCLass] = effect();
 
-// heading.textContent = 'Diablo Immortal'; // example of a setter
+    // use the contains method to check if the element has a specific class
+    if(oldClass && pic.classList.contains(oldClass)) {
+        // we have a class to remove from pic
+        pic.classList.remove(oldClass);
+    }
 
-/**
- * textContent and innerText
- *
- * textContent and innerText are very similar properties, textContent is the newer one.
- *
- * The only difference is that innerText returns only the human-readable content whereas textContent will get
- * the contents of all the elements, including script and style elements.
- */
-console.log('--textContent', heading.textContent); // using Chrome, the <style> tags were not included?
-console.log('--innerText', heading.innerText);
+    pic.classList.toggle(newCLass);
+}
+
+function removeAllEffects() {
+    pic.classList.remove(...fxClass);
+}
+
+// button controls
+const randomBtn = document.querySelector('.btn-random');
+randomBtn.addEventListener('click', toggleEffect);
+
+const resetBtn = document.querySelector('.btn-reset');
+resetBtn.addEventListener('click', removeAllEffects);
