@@ -10,22 +10,38 @@
 </head>
 <body>
 <div class='items'>
-  <p>Ius no aeterno vivendum, cum clita admodum ut, tale veritus ius ut.</p>
-  <div class='item2'>
-    <h2>
-      I Was Once A Cucumber
-      <style>
-        h2 {
-          color: seagreen;
-        }
-      </style>
-    </h2>
-    <p>Mollis minimum evertitur in est.</p>
-  </div>
-  <img src='https://source.unsplash.com/random/300x300' alt='image alt text'>
-  <p>Nullam salutandi scriptorem an per</p>
-  <p>Altera dictas mentitum et eos, an tollit mucius doming has.</p>
+  <article class="item">
+    <h2>I'm an article</h2>
+    <p class="pizza">This is how many pizzas I ate! 🍕</p>
+  </article>
 </div>
-<script src='./the-dom.js'></script>
+<script>
+  /* Get and set element text */
+  // Select the element
+  const pizzaList = document.querySelector('.pizza');
+  console.log(pizzaList.textContent);
+  // Update the textContent.
+  // This will take what was already there and adds a pizza emoji to the end.
+  // This method can be slow in some applications that have lots of text and HTML,
+  // because it causes the browser to re-render the entire list.
+  pizzaList.textContent = `${pizzaList.textContent}🍕`;
+
+  /* insertAdjacentText and insertAdjacentElement */
+  // These are different methods to add text to the end.
+  // (arg1) position can be (beforebegin, afterbegin, beforeend, afterend)
+  // 
+  pizzaList.insertAdjacentText('beforeend', '🍕');
+  pizzaList.insertAdjacentText('afterbegin', '🍕');
+
+  // more pizza
+  let morePizza = document.createElement('p');
+  morePizza.classList.add('more-pizza');
+  morePizza.textContent = '🍕🍕🍕🍕🍕';
+  pizzaList.insertAdjacentElement('afterend', morePizza);
+
+  // Nodes vs Elements
+  // Nodes can be anything, but an accutal element is something that is wrapped
+  // in tags.
+</script>
 </body>
 </html>
