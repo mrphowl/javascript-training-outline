@@ -101,3 +101,30 @@ console.log("--pic.getAttribute('alt') new value", pic.getAttribute('alt'));
 // check if pic has this attribute
 console.log("--pic.hasAttribute('title')?", pic.hasAttribute('title'));
 console.log("--pic.hasAttribute('width')?", pic.hasAttribute('width'));
+
+/**
+ * Data Attributes
+ *
+ * Use data attributes to create custom attributes.
+ */
+// the attributes are stored in the dataset object in the element
+const custom = document.querySelector('.custom');
+console.log('--custom', custom.dataset);
+
+const custom2 = document.querySelector('.custom2');
+console.log('--custom2', custom2.dataset.last, custom2.dataset.name);
+
+custom2.addEventListener('click', () => {
+  alert(`Welcome ${custom.dataset.name} ${custom.dataset.last}.`);
+});
+
+const custom3 = document.querySelector('.custom3');
+// destructing properties into the current scope
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/with#avoiding_with_by_destructuring_properties_into_the_current_scope
+const { hp, atk, def, spd } = custom3.dataset;
+console.log('--custom3-stats:');
+console.log('---- Name:', custom3.dataset.name);
+console.log('---- HP:', hp);
+console.log('---- Attack:', atk);
+console.log('---- Defense:', def);
+console.log('---- Speed:', spd);
