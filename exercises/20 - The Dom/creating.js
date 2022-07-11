@@ -47,3 +47,24 @@ const heading = document.createElement('h2');
 heading.textContent = 'Cool Things';
 // Insert the heading before the paragraph and the image tag
 myDiv.insertAdjacentElement('afterbegin', heading);
+
+/* Generating An Unordered List */
+const list = document.createElement('ul');
+const li = document.createElement('li');
+li.textContent = 'One';
+const li2 = li.cloneNode(true);
+li2.textContent = 'Two';
+const li3 = li.cloneNode(true);
+li3.textContent = 'Three';
+const li4 = li.cloneNode(true);
+li4.textContent = 'Four';
+const li5 = li.cloneNode(true);
+li5.textContent = 'Five';
+
+// Add the list items
+list.appendChild(li3); // Three
+list.appendChild(li5); // Five
+list.insertAdjacentElement('afterbegin', li); // One
+li5.insertAdjacentElement('beforebegin', li4); // Four
+li.insertAdjacentElement('afterend', li2); // Two
+myDiv.insertAdjacentElement('beforeend', list);
