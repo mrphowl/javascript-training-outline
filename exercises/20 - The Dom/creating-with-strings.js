@@ -14,33 +14,27 @@ chat.innerHTML = `<h1>Hey! How are you?</h1>`;
 console.log('--set item.innerHTML', chat.innerHTML);
 
 // with interpolation
-let src = `https://picsum.photos/200`;
-let desc = 'Cute pup';
-let myHTML = `
+const src = `https://picsum.photos/200`;
+const desc = 'Cute pup';
+const myHTML = `
   <div class="wrapper">
     <h2>Cute ${desc}</h2>
     <img src="${src}" alt="${desc}"/>
   </div>
 `;
-item.innerHTML = myHTML;
 
-// One of the downsides to using this method to insert HTML is that the contents of
-// the myHTML variable are not elements, they are just strings.
-const width = 500;
-src = `https://picsum.photos/${width}`;
-desc = 'Cute pup';
-myHTML = `
-  <div class="wrapper">
-    <h2>Cute ${desc}</h2>
-    <img src="${src}" alt="${desc}"/>
-  </div>
-`;
-item.innerHTML = myHTML;
-// myHTML only becomes an actual element once it is dumped into the DOM by setting the innerHTML.
-// It is not possible to do things like add event listeners, add to the classList, or change any attributes,
-// like title or alt or src.
-console.log('--typeof myHTML', typeof myHTML);
+// Create a range.
+// A range is essentially a collection of elements or part of HTML that we can then work with.
+let myFragment = document.createRange();
+console.log('--myFragment', myFragment);
 
-// Once it's in the DOM, it will have to be pulled out.
-const itemImage = document.querySelector('.wrapper img');
-itemImage.classList.add('round');
+// We can call another method directly on document.createRange() called .createContextualFragment();
+// which takes in a string as a parameter
+myFragment = document.createRange().createContextualFragment(myHTML); // document fragment
+console.log('--myFragment-myHTML', myFragment.querySelector('img'));
+
+// insertAdjacentElement wouldn't accept document fragments as element
+// https://stackoverflow.com/a/61576091
+for (const element of myFragment.children) {
+  item.insertAdjacentElement('beforeend', element);
+}
