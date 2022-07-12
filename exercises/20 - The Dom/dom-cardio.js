@@ -22,9 +22,9 @@ div.appendChild(ul);
 // create an image
 const img = document.createElement('img');
 // set the source to an image
-img.src = 'https://picsum.photos/300';
+img.src = 'https://picsum.photos/250';
 // set the width to 250
-img.width = 300;
+img.width = 250;
 // add a class of cute
 img.classList.add('cute');
 // add an alt of Cute Puppy
