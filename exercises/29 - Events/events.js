@@ -27,11 +27,15 @@ const hoola = () => console.log('HOOORAY!!');
 coolButton.addEventListener('click', hoola);
 
 /* Listening to events on multiple elements */
-
-const buyItem = evt => console.log(`BUY ITEM ${evt.currentTarget.dataset.item}`);
 const buyButtons = document.querySelectorAll('button.buy');
-// Bind an event listener to all button.buy
-// The same method can be done to unbind the event listeners
-buyButtons.forEach(buyButton => {
-  buyButton.addEventListener('click', buyItem);
-});
+
+function handleByButtonClick(event) {
+  const price = parseFloat(event.target.dataset.price).toFixed(2);
+  console.log(`You are buying Item ${event.target.dataset.item} for ${price}`);
+
+  console.log('--event.target', event.target);
+  console.log('--event.currentTarget', event.currentTarget);
+  console.log(event.target === event.currentTarget);
+}
+
+buyButtons.forEach(buyButton => buyButton.addEventListener('click', handleByButtonClick));
