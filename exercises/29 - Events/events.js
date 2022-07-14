@@ -48,3 +48,13 @@ window.addEventListener('click', event => {
   console.log(event.type);
   console.log(event.bubbles);
 });
+
+const photoEl = document.querySelector('.photo');
+photoEl.addEventListener('mousemove', e => {
+  console.log('--mousemove', e.currentTarget);
+  console.count(e.currentTarget);
+});
+photoEl.addEventListener('mouseenter', e => {
+  console.log('--mouseenter', e.currentTarget);
+  console.count(e.currentTarget);
+});
