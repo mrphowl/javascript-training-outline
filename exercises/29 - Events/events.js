@@ -25,3 +25,13 @@ coolButton.removeEventListener('click', handleClick);
 const hoola = () => console.log('HOOORAY!!');
 
 coolButton.addEventListener('click', hoola);
+
+/* Listening to events on multiple elements */
+
+const buyItem = evt => console.log(`BUY ITEM ${evt.currentTarget.dataset.item}`);
+const buyButtons = document.querySelectorAll('button.buy');
+// Bind an event listener to all button.buy
+// The same method can be done to unbind the event listeners
+buyButtons.forEach(buyButton => {
+  buyButton.addEventListener('click', buyItem);
+});
