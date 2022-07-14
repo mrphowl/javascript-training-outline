@@ -30,6 +30,7 @@ coolButton.addEventListener('click', hoola);
 const buyButtons = document.querySelectorAll('button.buy');
 
 function handleByButtonClick(event) {
+  event.stopPropagation();
   const price = parseFloat(event.target.dataset.price).toFixed(2);
   console.log(`You are buying Item ${event.target.dataset.item} for ${price}`);
 
@@ -38,4 +39,12 @@ function handleByButtonClick(event) {
   console.log(event.target === event.currentTarget);
 }
 
-buyButtons.forEach(buyButton => buyButton.addEventListener('click', handleByButtonClick));
+buyButtons.forEach(buyButton => buyButton.addEventListener('click', handleByButtonClick, { capture: false }));
+
+// Propagation
+window.addEventListener('click', event => {
+  console.log('You clicked the window!');
+  console.log(event.target);
+  console.log(event.type);
+  console.log(event.bubbles);
+});
