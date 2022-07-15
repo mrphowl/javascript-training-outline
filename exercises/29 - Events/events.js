@@ -50,11 +50,19 @@ window.addEventListener('click', event => {
 });
 
 const photoEl = document.querySelector('.photo');
-photoEl.addEventListener('mousemove', e => {
-  console.log('--mousemove', e.currentTarget);
-  console.count(e.currentTarget);
+// photoEl.addEventListener('mousemove', e => {
+//   console.log('--mousemove', e.currentTarget);
+//   console.count(e.currentTarget);
+// });
+photoEl.addEventListener('mouseenter', function (e) {
+  // console.log('--mouseenter', e.currentTarget);
+  console.log(e.currentTarget);
+  // same as above
+  console.log('--this-anonymous', this); // "this" is a reserved word
 });
 photoEl.addEventListener('mouseenter', e => {
-  console.log('--mouseenter', e.currentTarget);
-  console.count(e.currentTarget);
+  // console.log('--mouseenter', e.currentTarget);
+  console.log(e.currentTarget);
+  // not scoped to the element calling addEventListener
+  console.log('--this-arrow', this); // "this" is a reserved word
 });
