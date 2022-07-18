@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JS-202: Events and Triggers - Prevent Default and Form Events</title>
+	<link rel="stylesheet" href="../../base.css">
+	<style>
+		.wes {
+			color: #FFFFFF;
+		}
+		.form {
+			max-width: 95%;
+			position: relative;
+			margin: 1rem auto;
+			font-size: 1.5rem;
+		}
+		.form form {
+			width: 30%;
+			margin: auto;
+			background-color: white;
+			padding: 1rem 1.5rem;
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+		}
+		.form form hr {
+			width: 100%;
+		}
+		.form form .terms {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			gap: 1rem;
+		}
+		.form input {
+			border-radius: 0.5rem;
+		}
+		.form button {
+			border-radius: 0.5rem;
+			font-size: 1.5rem;
+			min-width: 10rem;
+		}
+	</style>
+</head>
+<body>
+	<a class="wes" href="https://wesbos.com">Wes Bos</a>
+	<div class="form">
+		<form action="forms.html" method="post" name="signup">
+			<label for="name">Name</label>
+			<input type="text" name="name" id="name">
+			<label for="email">Email</label>
+			<input type="text" name="email" id="email">
+			<span class="terms">
+				<input type="checkbox" name="terms-agree" id="terms_agree">
+				I agree to the terms and conditions.
+			</span>
+			<hr>
+			<button type="submit">Submit</button>
+		</form>
+	</div>
+	<script src="./forms.js"></script>
+</body>
+</html>
