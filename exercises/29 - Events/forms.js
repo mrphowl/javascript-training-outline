@@ -57,3 +57,16 @@ signupFrom.name.addEventListener('keydown', logEvent);
 signupFrom.name.addEventListener('focus', logEvent);
 // log when the cursor leaves the field
 signupFrom.name.addEventListener('blur', logEvent);
+
+/**
+ * Accessibility Gotchas and Keyboard Codes
+ */
+const photo = document.querySelector('.photo');
+
+function handlePhotoClick() {
+  console.log('you clicked the photo');
+}
+
+['click', 'keyup'].forEach(event => {
+  photo.addEventListener(event, handlePhotoClick);
+});
