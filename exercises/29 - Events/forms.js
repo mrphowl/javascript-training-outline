@@ -21,3 +21,20 @@ wes.addEventListener('click', event => {
 
   console.log(shouldChangePage);
 });
+
+const signupFrom = document.querySelector('[name=signup]');
+
+signupFrom.addEventListener('submit', event => {
+  console.log(event);
+  console.log('--name', event.currentTarget.name.value);
+  console.log('--email', event.currentTarget.email.value);
+  console.log('--agree', event.currentTarget.agree.checked);
+  // event.preventDefault();
+
+  const name = event.currentTarget.name.value.toLowerCase();
+  // Note: includes is case-sensitive!
+  if (name.includes('chad')) {
+    alert('Sorry, Bro');
+    event.preventDefault();
+  }
+});
