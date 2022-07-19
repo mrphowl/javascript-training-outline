@@ -63,8 +63,10 @@ signupFrom.name.addEventListener('blur', logEvent);
  */
 const photo = document.querySelector('.photo');
 
-function handlePhotoClick() {
-  console.log('you clicked the photo');
+function handlePhotoClick(event) {
+  if (event.type === 'click' || event.key === 'Enter') {
+    console.log('you clicked the photo');
+  }
 }
 
 ['click', 'keyup'].forEach(event => {
