@@ -38,3 +38,22 @@ signupFrom.addEventListener('submit', event => {
     event.preventDefault();
   }
 });
+
+/**
+ * Log event types
+ *
+ * @param object event
+ */
+function logEvent(event) {
+  console.count(event.type);
+  console.log(event.currentTarget.value);
+}
+
+// log the key pressed
+signupFrom.name.addEventListener('keyup', logEvent);
+// log the value
+signupFrom.name.addEventListener('keydown', logEvent);
+// log when the cursor goes to the field
+signupFrom.name.addEventListener('focus', logEvent);
+// log when the cursor leaves the field
+signupFrom.name.addEventListener('blur', logEvent);
